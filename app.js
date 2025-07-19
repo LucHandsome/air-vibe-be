@@ -10,6 +10,7 @@ const initSocket = require("./libs/initSocket");
 const customerRoutes = require("./routes/customer");
 const adminRoutes = require("./routes/admin");
 const messageRoutes = require("./routes/message.routes");
+const weatherRoutes = require("./routes/weather.route");
 const corsOptions = require("./config/cors");
 
 dotenv.config(); 
@@ -27,6 +28,7 @@ app.use(cors(corsOptions));
 app.use("/api/v1", customerRoutes);
 app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/messages", messageRoutes);
+app.use("/api/v1/weather", weatherRoutes);
 app.get("/", (_, res) => res.send("Hello World!"));
 
 app.use((error, _req, res, _next) => {
